@@ -3,6 +3,10 @@ import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
 import Modal from 'react-modal';
 import { useState } from "react";
+import { NewTransactionModal } from "./components/NewTransactionModa";
+
+//to accessibility
+Modal.setAppElement('#root');
 
 export function App() {
   //create state
@@ -21,13 +25,10 @@ export function App() {
     <>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
       <Dashboard />
-
-      <Modal
+      <NewTransactionModal 
         isOpen={isNewTransactionModalOpen}
         onRequestClose={handleCloseNewTransactionModal}
-      >
-        <h2>Cadastar transação</h2>
-      </Modal>
+      />
       <GlobalStyle />
     </>
   );
