@@ -4,6 +4,7 @@ import { GlobalStyle } from "./styles/global";
 import Modal from 'react-modal';
 import { useState } from "react";
 import { NewTransactionModal } from "./components/NewTransactionModa";
+import { TransactionContext, TransactionsProvider } from "./TransactionContext";
 
 //to accessibility
 Modal.setAppElement('#root');
@@ -22,7 +23,9 @@ export function App() {
 
 
   return (
-    <>
+    //Context must be around everything
+    //Contexto deve estar englobando todo mundo, para termos acesso
+    <TransactionsProvider>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
       <Dashboard />
       <NewTransactionModal 
@@ -30,6 +33,6 @@ export function App() {
         onRequestClose={handleCloseNewTransactionModal}
       />
       <GlobalStyle />
-    </>
+    </TransactionsProvider>
   );
 }
