@@ -8,8 +8,8 @@ import { Container } from "./styles";
 
 export function Summary() {
     //Hook useContext
-    const data = useContext(TransactionContext);
-    console.log(data);
+    const { transactionsData } = useContext(TransactionContext);
+    console.log(transactionsData);
 
     return(
         <Container>
